@@ -29,7 +29,7 @@ public:
             }
         }
         else{
-            qInfo() << "ERROR: The price can't be a negative number. " << "/n";
+            qInfo() << "ERROR: The price can't be a negative number." << "/n";
         }
     }
     double getPrice(){

@@ -21,6 +21,9 @@ int main(int argc, char *argv[])
     StoreItem banana = StoreItem(1,0.89,4.7,"Banana","Food","Fruit");
     QString bananaName = banana.getName();
     qInfo()<< bananaName;
+    banana.setPrice(-70);
+    double newPrice = banana.getPrice();
+    qInfo() << QString::number(newPrice);
 
 //    for (result::const_iterator curVal = R.begin(); curVal != R.end(); ++curVal) {
 //        std::string val = curVal[0].as<std::string>();
