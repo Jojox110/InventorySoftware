@@ -4,7 +4,7 @@
 #include <iostream>
 #include <QDebug>
 #include <QString>
-#include "/home/dmitry/QtProjects/InventorySoftware/StoreItem_Class.cpp"
+#include "StoreItem_Class.cpp"
 
 using namespace pqxx;
 
@@ -24,12 +24,6 @@ int main(int argc, char *argv[])
     banana.setPrice(-70);
     double newPrice = banana.getPrice();
     qInfo() << QString::number(newPrice);
-
-//    for (result::const_iterator curVal = R.begin(); curVal != R.end(); ++curVal) {
-//        std::string val = curVal[0].as<std::string>();
-
-//        qInfo() << val;
-//    }
 
     QApplication a(argc, argv);
     Widget w;
