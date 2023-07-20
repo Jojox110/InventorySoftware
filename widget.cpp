@@ -5,6 +5,10 @@
 #include <iostream>
 #include <QDebug>
 
+#include <QLabel>
+#include <QFrame>
+#include <QGridLayout>
+
 using namespace pqxx;
 
 Widget::Widget(QWidget *parent)
@@ -12,6 +16,37 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
+
+    int col = 0;
+    int row = 0;
+
+    for (int i = 0; i < 11; i++) {
+        QGridLayout *grid = new QGridLayout();
+        QLabel *l1 = new QLabel("aaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbccccccccccccccccccccccccccccccccccccc");
+        QLabel *l2 = new QLabel("b");
+        QLabel *l3 = new QLabel("c");
+
+        grid->addWidget(l1, 0, 0, 1, 1);
+        grid->addWidget(l2, 1, 0, 1, 1);
+        grid->addWidget(l3, 2, 0, 1, 1);
+
+        QFrame *frame = new QFrame();
+        frame->setFrameStyle(QFrame::Box | QFrame::Raised);
+        frame->setLineWidth(2);
+        frame->setLayout(grid);
+
+        ui->itemLayout->addWidget(frame, row, col, 1, 1);
+        col += 1;
+        if (col == 3) {
+            col = 0;
+            row += 1;
+        }
+    }
+
+    ui->filterComboBox->addItem("High to Low");
+    ui->filterComboBox->addItem("Low to High");
+    ui->filterComboBox->addItem("A to Z");
+    ui->filterComboBox->addItem("Z to A");
 }
 
 Widget::~Widget()
@@ -19,31 +54,33 @@ Widget::~Widget()
     delete ui;
 }
 
+/*    QGridLayout *gridLayout = new QGridLayout();
 
-void Widget::on_pushButton_clicked()
-{
-    connection c ("dbname = postgres user = postgres password = 859RHU6A9hUWSimi host = db.wvokvvnurrnibmbzpsff.supabase.co port = 5432");
+    int col = 0;
+    int row = 0;
 
-    std::string sql = "SELECT * FROM info";
+    for (int i = 0; i < 11; i++) {
+        QGridLayout *grid = new QGridLayout();
+        QLabel *l1 = new QLabel("a");
+        QLabel *l2 = new QLabel("b");
+        QLabel *l3 = new QLabel("c");
 
-    nontransaction N(c);
-    result R(N.exec(sql));
+        grid->addWidget(l1, 0, 0, 1, 1);
+        grid->addWidget(l2, 1, 0, 1, 1);
+        grid->addWidget(l3, 2, 0, 1, 1);
 
-    int count = 0;
-    for (result::const_iterator a = R.begin(); a != R.end(); ++a) {
-        if (count == 0) {
-            QString one = QString::fromStdString(to_string(a[0]));
-            ui->label1->setText(one);
-            count += 1;
-            qDebug() << one;
-        }
+        QFrame *frame = new QFrame();
+        frame->setFrameStyle(QFrame::Box | QFrame::Raised);
+        frame->setLineWidth(2);
+        frame->setLayout(grid);
 
-        else if (count == 1) {
-            QString two = QString::fromStdString(to_string(a[0]));
-            ui->label2->setText(two);
-            count += 1;
-            qDebug() << two;
+        ui->gridLayout->addWidget(frame, row, col, 1, 1);
+        col += 1;
+        if (col == 3) {
+            col = 0;
+            row += 1;
         }
     }
-}
+
+    w.setLayout(gridLayout); */
 

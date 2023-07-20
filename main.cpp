@@ -1,6 +1,9 @@
 #include "widget.h"
 
 #include <QApplication>
+#include <QGridLayout>
+#include <QLabel>
+#include <QFrame>
 
 int main(int argc, char *argv[])
 {
