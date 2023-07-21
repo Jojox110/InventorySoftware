@@ -8,6 +8,7 @@
 #include <QLabel>
 #include <QFrame>
 #include <QGridLayout>
+#include <cstdlib>
 
 using namespace pqxx;
 
@@ -16,6 +17,9 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
+
+    char* value = std::getenv("TEST");
+    qInfo() << value << "testing testing" << "\n";
 
     int col = 0;
     int row = 0;
