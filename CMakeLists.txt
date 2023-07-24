@@ -19,6 +19,8 @@ set(PROJECT_SOURCES
         widget.ui
         StoreItem_Class.cpp
         StoreItem_Class.h
+        GetItems.cpp
+        GetItems.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
