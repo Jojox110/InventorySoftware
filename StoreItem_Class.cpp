@@ -55,7 +55,7 @@ void StoreItem::setName(QString name){
         }
     }
     else{
-        qInfo() << "ERROR: The name can't be an emty string";
+        qInfo() << "ERROR: The name can't be an empty string";
     }
 }
 
@@ -73,7 +73,7 @@ void StoreItem::setMain_Category(QString main_category){
         }
     }
     else{
-        qInfo() << "ERROR: The main_category can't be an emty string";
+        qInfo() << "ERROR: The main_category can't be an empty string";
     }
 }
 
@@ -91,7 +91,7 @@ void StoreItem::setSub_Category(QString sub_category){
         }
     }
     else{
-        qInfo() << "ERROR: The sub_category can't be an emty string";
+        qInfo() << "ERROR: The sub_category can't be an empty string";
     }
 }
 
