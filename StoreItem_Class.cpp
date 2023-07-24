@@ -57,7 +57,6 @@ void StoreItem::setName(QString name){
     else{
         qInfo() << "ERROR: The name can't be an emty string";
     }
-
 }
 
 QString StoreItem::getName(){
