@@ -21,6 +21,8 @@ set(PROJECT_SOURCES
         StoreItem_Class.h
         GetItems.cpp
         GetItems.h
+        BuildInventoryUI.cpp
+        BuildInventoryUI.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
