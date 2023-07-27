@@ -21,8 +21,13 @@ set(PROJECT_SOURCES
         StoreItem_Class.h
         GetItems.cpp
         GetItems.h
+<<<<<<< HEAD
         BuildInventoryUI.cpp
         BuildInventoryUI.h
+=======
+        SortingFunctions.h
+        SortingFunctions.cpp
+>>>>>>> c8b52c4a0fa13714184b3391d811e3edb1076e55
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -10,7 +10,12 @@
 #include <QScrollArea>
 #include "StoreItem_Class.h"
 #include "GetItems.h"
+<<<<<<< HEAD
 #include "BuildInventoryUI.h"
+=======
+#include "SortingFunctions.h"
+#include <vector>
+>>>>>>> c8b52c4a0fa13714184b3391d811e3edb1076e55
 
 using namespace pqxx;
 
@@ -26,9 +31,19 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Widget w;
 
+<<<<<<< HEAD
     // TODO: itemGrid needs a QScrollArea
 
     std::vector<StoreItem> items = getItems();
+=======
+    std::vector<StoreItem> arr = getItems();
+
+    int n = arr.size();
+    quickSort(arr, 0, n - 1);
+    for (int i = 0; i < n; i++) {
+        qInfo() << arr[i].getPrice() << " ";
+    }
+>>>>>>> c8b52c4a0fa13714184b3391d811e3edb1076e55
 
     QScrollArea *mainWindow = new QScrollArea();
     QWidget *mainWidget = new QWidget();

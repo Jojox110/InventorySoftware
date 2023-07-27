@@ -31,8 +31,8 @@ std::vector<StoreItem> getItems() {
 
     for (result::const_iterator a = R.begin(); a != R.end(); ++a) {
         long id = a[0].as<long>();
-        float price = a[1].as<float>();
-        float rating = a[2].as<float>();
+        double price = a[1].as<double>();
+        double rating = a[2].as<double>();
         QString name = QString::fromStdString((a[3].as<std::string>()));
         QString main_category = QString::fromStdString((a[4].as<std::string>()));
         QString sub_category = QString::fromStdString((a[5].as<std::string>()));
