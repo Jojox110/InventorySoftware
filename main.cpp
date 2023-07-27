@@ -7,8 +7,10 @@
 #include <iostream>
 #include <QDebug>
 #include <QString>
+#include <QScrollArea>
 #include "StoreItem_Class.h"
 #include "GetItems.h"
+#include "BuildInventoryUI.h"
 
 using namespace pqxx;
 
@@ -24,8 +26,27 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Widget w;
 
+    // TODO: itemGrid needs a QScrollArea
+
     std::vector<StoreItem> items = getItems();
 
-    w.show();
+    QScrollArea *mainWindow = new QScrollArea();
+    QWidget *mainWidget = new QWidget();
+
+    QGridLayout *mainGrid = new QGridLayout();
+    QGridLayout *itemGrid = new QGridLayout();
+
+    BuildInventoryUI inventoryUI (mainGrid, itemGrid, 0, 0, items);
+    inventoryUI.addItemsGrid();
+    inventoryUI.addFilterComboBox();
+    for (int i = 0; i < 500; i++) {
+        inventoryUI.addItemToItemsGrid(items[i]);
+    }
+
+    mainWidget->setLayout(mainGrid);
+    mainWindow->setWidget(mainWidget);
+
+    mainWindow->show();
+
     return a.exec();
 }

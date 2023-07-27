@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "BuildInventoryUI.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
@@ -14,6 +16,7 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+
 
 private:
     Ui::Widget *ui;
