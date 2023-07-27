@@ -21,6 +21,8 @@ set(PROJECT_SOURCES
         StoreItem_Class.h
         GetItems.cpp
         GetItems.h
+        SortingFunctions.h
+        SortingFunctions.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
