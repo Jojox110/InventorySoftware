@@ -20,12 +20,12 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Widget w;
 
-    std::vector<double> arr = {10, 7, 8, 9, 1, 5};
+    std::vector<StoreItem> arr = getItems();
 
     int n = arr.size();
     quickSort(arr, 0, n - 1);
     for (int i = 0; i < n; i++) {
-        qInfo() << arr[i] << " ";
+        qInfo() << arr[i].getPrice() << " ";
     }
 
     w.show();

@@ -4,13 +4,13 @@
 #include<QString>
 #include<QDebug>
 
-void swap(double *a, double *b){
-    double tmp = *a;
+void swap(StoreItem *a, StoreItem *b){
+    StoreItem tmp = *a;
     *a = *b;
     *b = tmp;
 }
 
-void quickSort(std::vector<double>& array, int left, int pivot){
+void quickSort(std::vector<StoreItem>& array, int left, int pivot){
     if(left < pivot){
         int new_pivot = partition(array, left, pivot);
 
@@ -19,12 +19,12 @@ void quickSort(std::vector<double>& array, int left, int pivot){
     }
 }
 
-int partition(std::vector<double>& array, int left, int pivot){
+int partition(std::vector<StoreItem>& array, int left, int pivot){
     int low = left - 1;
     int high = pivot - 1;
 
     for(int j = left; j <= high; j++){
-        if(array[j] <= array[pivot]){
+        if(array[j].getPrice() <= array[pivot].getPrice()){
             low++;
             swap(&array[low], &array[j]);
         }

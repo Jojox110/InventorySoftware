@@ -3,9 +3,10 @@
 
 #include<iostream>
 #include<vector>
+#include"StoreItem_Class.h"
 
-void quickSort(std::vector<double>& array, int left, int pivot);
-int partition(std::vector<double>& array, int left, int pivot);
-void swap(double *a, double *b);
+void quickSort(std::vector<StoreItem>& array, int left, int pivot);
+int partition(std::vector<StoreItem>& array, int left, int pivot);
+void swap(StoreItem *a, StoreItem *b);
 
 #endif // SORTINGFUNCTIONS_H
