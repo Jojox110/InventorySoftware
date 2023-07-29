@@ -35,27 +35,28 @@ int main(int argc, char *argv[])
 
     int n = arr.size();
     quickSort(arr, 0, n - 1);
-    for (int i = 0; i < n; i++) {
-        qInfo() << arr[i].getPrice() << " ";
-    }
 
-    QScrollArea *mainWindow = new QScrollArea();
+    std::vector<StoreItem> reverseSortedItems = reverseSortedVector(arr);
+
+
+    QScrollArea *window = new QScrollArea();
     QWidget *mainWidget = new QWidget();
 
     QGridLayout *mainGrid = new QGridLayout();
     QGridLayout *itemGrid = new QGridLayout();
 
-    BuildInventoryUI inventoryUI (mainGrid, itemGrid, 0, 0, items);
+    BuildInventoryUI inventoryUI (mainGrid, itemGrid, 0, 0, items, mainWidget, window, arr, reverseSortedItems);
     inventoryUI.addItemsGrid();
+    inventoryUI.addPagesGrid();
     inventoryUI.addFilterComboBox();
-    for (int i = 0; i < 500; i++) {
+    for (int i = 0; i < 30; i++) {
         inventoryUI.addItemToItemsGrid(items[i]);
     }
 
     mainWidget->setLayout(mainGrid);
-    mainWindow->setWidget(mainWidget);
+    window->setWidget(mainWidget);
 
-    mainWindow->show();
+    window->show();
 
     return a.exec();
 }

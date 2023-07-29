@@ -34,3 +34,12 @@ int partition(std::vector<StoreItem>& array, int left, int pivot){
 
     return low +1;
 }
+
+std::vector<StoreItem> reverseSortedVector(const std::vector<StoreItem> items) {
+    std::vector<StoreItem> newVector;
+    newVector.reserve(items.size());
+    for (int i = items.size() - 1; i >= 0; i--) {
+        newVector.push_back(items[i]);
+    }
+    return newVector;
+}
